@@ -10,17 +10,17 @@ import Foundation
 #if os(iOS)
 import UIKit
 #endif
-typealias IntentForResult = (_ resultCode:Int, _ requestCode: Int, _ data:Serializable)->Void
-protocol Present {
+public typealias IntentForResult = (_ resultCode:Int, _ requestCode: Int, _ data:Serializable)->Void
+public protocol Present {
     func start(_ intent:Intent) -> Void
     func start(_ intent:Intent, forResult result :@escaping IntentForResult) -> Void
 }
-protocol IntentProtocol {
+public protocol IntentProtocol {
     var intentForResult:IntentForResult?{get set}
 }
 
 extension UIViewController{
-    var intent:Intent? {
+   open var intent:Intent? {
         set(newValue){
             let key =     UnsafePointer<Any>.init(bitPattern: self.hashValue + "Intent".hashValue)
             objc_setAssociatedObject(self, key!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -31,7 +31,7 @@ extension UIViewController{
             return objc_getAssociatedObject(self, key!) as? Intent
         }
     }
-    var intentResult: IntentForResult?{
+  open  var intentResult: IntentForResult?{
         set(newValue){
             let key =     UnsafePointer<Any>.init(bitPattern: self.hashValue + "intentResult".hashValue)
             objc_setAssociatedObject(self, key!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -44,12 +44,13 @@ extension UIViewController{
     }
     
 }
+
 class DefaultPresent: Present{
  
-    func start(_ intent:Intent) {
+   open func start(_ intent:Intent) {
         intent.fromVC?.present(intent.toVC!, animated: intent.animated, completion: intent.completion )
     }
-    func start(_ intent: Intent, forResult result: @escaping (Int, Int, Serializable) -> Void) {
+ open   func start(_ intent: Intent, forResult result: @escaping (Int, Int, Serializable) -> Void) {
         
         intent.toVC?.intentResult = result
         intent.fromVC?.present(intent.toVC!, animated: intent.animated, completion: intent.completion )
@@ -58,28 +59,28 @@ class DefaultPresent: Present{
     
 }
 
-class PushPresent: Present {
+open class PushPresent: Present {
     
-    func start(_ intent:Intent) {
+ open   func start(_ intent:Intent) {
         if nil != intent.fromVC?.navigationController {            intent.fromVC?.navigationController?.pushViewController(intent.toVC!, animated: intent.animated)
         }
     }
-    func start(_ intent: Intent, forResult result: @escaping (Int, Int, Serializable) -> Void) {
+ open   func start(_ intent: Intent, forResult result: @escaping (Int, Int, Serializable) -> Void) {
         
         intent.toVC?.intentResult = result
         if nil != intent.fromVC?.navigationController {            intent.fromVC?.navigationController?.pushViewController(intent.toVC!, animated: intent.animated)
         }
     }
 }
-class IntentManager{
-    static let manager:IntentManager = IntentManager()
+open class IntentManager{
+   public static let manager:IntentManager = IntentManager()
     private init() {}
-    func start(_ intent:Intent) -> Void {
+ open   func start(_ intent:Intent) -> Void {
         intent.toVC?.intent = intent
         intent.present.start(intent)
     }
     
-    func start(_ intent:Intent, forResult result: @escaping IntentForResult) -> Void {
+  open  func start(_ intent:Intent, forResult result: @escaping IntentForResult) -> Void {
         intent.toVC?.intent = intent
         intent.present.start(intent, forResult: result)
     }

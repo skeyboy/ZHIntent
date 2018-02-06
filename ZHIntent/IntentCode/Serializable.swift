@@ -7,7 +7,7 @@
 //
 
 import Foundation
-protocol Serializable {
+public protocol Serializable {
     
 }
 
