@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B04403C202979D90049F43F /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B044039202979D90049F43F /* Serializable.swift */; };
+		8B04403D202979D90049F43F /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B044039202979D90049F43F /* Serializable.swift */; };
+		8B04403E202979D90049F43F /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B044039202979D90049F43F /* Serializable.swift */; };
+		8B04403F202979D90049F43F /* IntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403A202979D90049F43F /* IntentManager.swift */; };
+		8B044040202979D90049F43F /* IntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403A202979D90049F43F /* IntentManager.swift */; };
+		8B044041202979D90049F43F /* IntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403A202979D90049F43F /* IntentManager.swift */; };
+		8B044042202979D90049F43F /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403B202979D90049F43F /* Intent.swift */; };
+		8B044043202979D90049F43F /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403B202979D90049F43F /* Intent.swift */; };
+		8B044044202979D90049F43F /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04403B202979D90049F43F /* Intent.swift */; };
 		8B94542C20293D4C00FBA8C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94542B20293D4C00FBA8C4 /* AppDelegate.swift */; };
 		8B94542E20293D4C00FBA8C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94542D20293D4C00FBA8C4 /* ViewController.swift */; };
 		8B94543120293D4C00FBA8C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B94542F20293D4C00FBA8C4 /* Main.storyboard */; };
@@ -34,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B044039202979D90049F43F /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		8B04403A202979D90049F43F /* IntentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentManager.swift; sourceTree = "<group>"; };
+		8B04403B202979D90049F43F /* Intent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intent.swift; sourceTree = "<group>"; };
 		8B94542820293D4C00FBA8C4 /* ZHIntent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHIntent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B94542B20293D4C00FBA8C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B94542D20293D4C00FBA8C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B044038202979D90049F43F /* IntentCode */ = {
+			isa = PBXGroup;
+			children = (
+				8B044039202979D90049F43F /* Serializable.swift */,
+				8B04403A202979D90049F43F /* IntentManager.swift */,
+				8B04403B202979D90049F43F /* Intent.swift */,
+			);
+			path = IntentCode;
+			sourceTree = "<group>";
+		};
 		8B94541F20293D4C00FBA8C4 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +119,7 @@
 		8B94542A20293D4C00FBA8C4 /* ZHIntent */ = {
 			isa = PBXGroup;
 			children = (
+				8B044038202979D90049F43F /* IntentCode */,
 				8B94542B20293D4C00FBA8C4 /* AppDelegate.swift */,
 				8B94542D20293D4C00FBA8C4 /* ViewController.swift */,
 				8B94542F20293D4C00FBA8C4 /* Main.storyboard */,
@@ -259,8 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B04403C202979D90049F43F /* Serializable.swift in Sources */,
+				8B044042202979D90049F43F /* Intent.swift in Sources */,
 				8B94542E20293D4C00FBA8C4 /* ViewController.swift in Sources */,
 				8B94542C20293D4C00FBA8C4 /* AppDelegate.swift in Sources */,
+				8B04403F202979D90049F43F /* IntentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B04403D202979D90049F43F /* Serializable.swift in Sources */,
 				8B94544120293D4C00FBA8C4 /* ZHIntentTests.swift in Sources */,
+				8B044043202979D90049F43F /* Intent.swift in Sources */,
+				8B044040202979D90049F43F /* IntentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B04403E202979D90049F43F /* Serializable.swift in Sources */,
 				8B94544C20293D4C00FBA8C4 /* ZHIntentUITests.swift in Sources */,
+				8B044044202979D90049F43F /* Intent.swift in Sources */,
+				8B044041202979D90049F43F /* IntentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
