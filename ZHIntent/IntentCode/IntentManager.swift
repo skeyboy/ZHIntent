@@ -10,6 +10,8 @@ import Foundation
 #if os(iOS)
 import UIKit
 #endif
+
+/// 作为回调使用 data中取数据
 public typealias IntentForResult = (_ resultCode:Int, _ requestCode: Int, _ data:Serializable)->Void
 public protocol Present {
     func start(_ intent:Intent) -> Void
@@ -45,8 +47,9 @@ extension UIViewController{
     
 }
 
-class DefaultPresent: Present{
- 
+open class DefaultPresent: Present{
+    public init(){}
+
    open func start(_ intent:Intent) {
         intent.fromVC?.present(intent.toVC!, animated: intent.animated, completion: intent.completion )
     }
@@ -60,7 +63,7 @@ class DefaultPresent: Present{
 }
 
 open class PushPresent: Present {
-    
+    public init(){}
  open   func start(_ intent:Intent) {
         if nil != intent.fromVC?.navigationController {            intent.fromVC?.navigationController?.pushViewController(intent.toVC!, animated: intent.animated)
         }
@@ -77,11 +80,16 @@ open class IntentManager{
     private init() {}
  open   func start(_ intent:Intent) -> Void {
         intent.toVC?.intent = intent
-        intent.present.start(intent)
+    intent.present?.start(intent)
     }
     
+  /// 开启一个新的页面 需要页面返回是给出返回的数据
+  ///
+  /// - Parameters:
+  ///   - intent: 传递的所有参数均在此处
+  ///   - result: 回调的数据
   open  func start(_ intent:Intent, forResult result: @escaping IntentForResult) -> Void {
         intent.toVC?.intent = intent
-        intent.present.start(intent, forResult: result)
+    intent.present?.start(intent, forResult: result)
     }
 }

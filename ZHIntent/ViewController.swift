@@ -41,7 +41,11 @@ class ViewController: UIViewController {
             
         }
         intent.put("A", extractInt: 32)
-        IntentManager.manager.start(intent) 
+        IntentManager.manager.start(intent)
+//        IntentManager.manager
+//            .start(intent) { (reqCode, resultCode, data) in
+//            
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
